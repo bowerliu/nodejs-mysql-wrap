@@ -1,0 +1,21 @@
+{
+  "name": "mysql-simple-wrap",
+  "version": "1.0.0",
+  "description": "mysql nodejs simple wrap",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mysql",
+    "nodejs"
+  ],
+  "author": "bower.liu@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
+}
