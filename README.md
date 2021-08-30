@@ -1,6 +1,6 @@
-# nodejs-mysql-plus
+# mysql-simple-wrap
  
-# nodejs-mysql-plus 是什么?
+# mysql-simple-wrap 是什么?
 
 #### 一个实现了mysql 常用功能的nodejs 库，旨在优雅简单的使用sql语言，即在代码中不出现sql语句
 
@@ -8,7 +8,7 @@
 
 #### 如有问题 欢迎反馈 bower.liu@gmail.com
 
-# nodejs-mysql-plus 有什么主要功能？
+# mysql-simple-wrap 有什么主要功能？
 
 ## 增删改查
 ## 批量插入insert
@@ -20,10 +20,10 @@
 
 可以直接下载源码后直接引用也可以npm安装
 
-执行命令：`npm install nodejs-mysql-plus`
+执行命令：`npm install mysql-simple-wrap`
 ### 实例化mysql conn
 ```javascript
-const { Conn } = require("nodejs-mysql-plus")
+const { Conn } = require("mysql-simple-wrap")
 const c = new Conn({
 	host: '',
 	user: '',

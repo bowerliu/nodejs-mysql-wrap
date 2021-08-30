@@ -1,6 +1,6 @@
 {
   "name": "mysql-simple-wrap",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "mysql nodejs simple wrap",
   "main": "index.js",
   "directories": {
@@ -11,11 +11,21 @@
   },
   "keywords": [
     "mysql",
-    "nodejs"
+    "nodejs",
+    "mysql批量插入",
+    "mysql批量更新"
   ],
   "author": "bower.liu@gmail.com",
   "license": "ISC",
   "dependencies": {
     "mysql": "^2.18.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bowerliu/nodejs-mysql-wrap.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bowerliu/nodejs-mysql-wrap/issues"
+  },
+  "homepage": "https://github.com/bowerliu/nodejs-mysql-wrap#readme"
 }
