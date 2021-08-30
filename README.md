@@ -2,11 +2,11 @@
  
 # mysql-simple-wrap 是什么?
 
-#### 一个实现了mysql 常用功能的nodejs 库，旨在优雅简单的使用sql语言，即在代码中不出现sql语句
+一个实现了mysql 常用功能的nodejs 库，旨在优雅简单的使用sql语言，即在代码中不出现sql语句
 
-####  实现了批量插入和批量更新功能，多个项目稳定运行
+实现了批量插入和批量更新功能，多个项目稳定运行
 
-#### 如有问题 欢迎反馈 bower.liu@gmail.com
+如有问题 欢迎反馈 bower.liu@gmail.com
 
 # mysql-simple-wrap 有什么主要功能？
 
