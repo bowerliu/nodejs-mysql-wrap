@@ -83,11 +83,11 @@ teacher.getData(options,function(rows){
 //回调函数也可以写到后面 第二个参数， 优先级高
  
 ```
-### 实战 查询age 大于20小于30岁 而且 school 不是null
+### 实战 查询age 大于20小于等于30岁 而且 school 不是null
 ```javascript
 const where = []
 where.push(['age','> 20'])
-where.push(['age','< 30'])
+where.push(['age','<= 30'])
 where.push(['school','is not null'])
 // where 可以是二维数组形式
 teacher.getData({
@@ -99,7 +99,30 @@ c.query('select* from teacher where age > 20 and age < 30 and school is not null
 
 })
 ```
+### where 是可以是对象也可以是数组
+```javascript
+//数组形式
+const where = []
+where.push(['age','> 20'])
+where.push(['school','is not null'])
+
+//等价于以下对象
+where = {
+    'age':'> 20',
+    'school':'is not null'
+}
+teacher.getData({
+            where:where
+        },function(rows){    
+})
+
+//数组可以解决 对象不能有重复字段的问题
+//如：
+where.push(['age','> 20'])
+where.push(['age','<= 30'])
+
  
+```
 
 ### 插入数据 insert  
 ```javascript
@@ -108,6 +131,7 @@ const data ={
     age:"001",
     class:"001",
     school:"001",
+    create_time:"now()",//插入当前时间 专门用法
 }
 teacher.insert(data,function(rows){    })
 
@@ -180,7 +204,7 @@ teacher.query(sql,function(rows){    })
 ```
  
 
-### 快捷方式 getById updateById 
+### 快捷方式 getById updateById  countAllByWhere
 针对where只有id的情况
 ```javascript
  
@@ -207,5 +231,7 @@ const time_colum_key = 'create_time'
 teacher.countMonthByWhere(id,time_colum_key,function(rows){
     //返回 rows[0].count_total
     }) 
-
+teacher.countWeekByWhere(id,time_colum_key,function(rows){
+    //返回 rows[0].count_total
+    }) 
 ``` 
