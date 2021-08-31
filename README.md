@@ -6,11 +6,13 @@
 
 实现了批量插入和批量更新功能，多个项目稳定运行
 
+A mysql nodejs oo wrap, make sql simple to use, idealy no need to write sql language in your code. 
+
 如有问题 欢迎反馈 bower.liu@gmail.com
 
 # mysql-simple-wrap 有什么主要功能？
 
-* 增删改查
+* 对象化mysql 
 * 批量插入insert
 * 批量更新
 
@@ -38,7 +40,7 @@ const c = new Conn({
 
 ```
 可以实例化多个数据库链接
-## 简单来个例子 
+## 简单来个例子  simple example
 ```javascript
 const teacher = c.table("teacher") //传入表名
 teacher.getAllByWhere({name:'peter'},function(rows){
@@ -83,7 +85,7 @@ teacher.getData(options,function(rows){
 //回调函数也可以写到后面 第二个参数， 优先级高
  
 ```
-### 实战 查询age 大于20小于等于30岁 而且 school 不是null
+### 实战 查询 age > 20 and age <= 30  and school is null
 ```javascript
 const where = []
 where.push(['age','> 20'])
@@ -199,7 +201,7 @@ del 为写操作 请谨慎 where参数为必填项
 ```javascript
 
 const sql = "select * from teacher";
-teacher.query(sql,function(rows){    })
+c.query(sql,function(rows){    })
 
 ```
  
