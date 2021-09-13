@@ -125,7 +125,21 @@ where.push(['age','<= 30'])
 
  
 ```
+## select 链式操作
+```javascript
+//数组形式
+const where = []
+where.push(['age','> 20'])
+where.push(['school','is not null'])
+ 
+teacher.select().where(where).orderby("create_time").groupby("class").limit(2).exec(rows =>{
+    console.log(rows)
+})
+ //以上等价于
+c.query('select* from teacher where age > 20  and school is not null group by class order by create_time limit 2',function(rows){
 
+})
+```
 ### 插入数据 insert  
 ```javascript
 const data ={
