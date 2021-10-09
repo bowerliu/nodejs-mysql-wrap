@@ -15,7 +15,7 @@ A mysql nodejs oo wrap, make sql simple to use, idealy no need to write sql lang
 * 对象化mysql 
 * 批量插入insert
 * 批量更新
-
+* redis 缓存
 
 # 如何使用
 ## 安装引用
@@ -26,6 +26,10 @@ A mysql nodejs oo wrap, make sql simple to use, idealy no need to write sql lang
 ### 实例化mysql conn
 ```javascript
 const { Conn } = require("mysql-simple-wrap")
+const redis = require('redis')
+
+const  cacheRedis = redis.createClient('6379', '127.0.0.1');
+
 const c = new Conn({
 	host: '',
 	user: '',
@@ -35,7 +39,11 @@ const c = new Conn({
 	charset: "utf8mb4",//可选
 	timezone: 'Asia/Shanghai',//可选
     time_colum_key:'create_time',//默认时间字段名
-    debug:false //可选 是否打印sql
+    debug:false, //可选 是否打印sql
+    redis:cacheRedis,//redis 实例
+	cache_on: true, //缓存开启
+	cache_time:60, // 缓存秒数
+    redis_key_prefix: "mysql_cache_" //可选 redis key 前缀
 });
 
 ```
@@ -74,6 +82,7 @@ const options = {
     groupby : "class",
     join_sign : "or", //默认值 and 
     eq_sign : "like", // 默认值 =
+    no_cache: true; //默认false 强制不取缓存
     callback :function(rows){
         
     }
@@ -219,7 +228,42 @@ c.query(sql,function(rows){    })
 
 ```
  
+### mysql redis 缓存
+全局配置redis缓存
+```javascript
 
+const { Conn } = require("mysql-simple-wrap")
+const redis = require('redis')
+
+const  cacheRedis = redis.createClient('6379', '127.0.0.1');
+
+const c = new Conn({
+   ...
+    redis:cacheRedis,//redis 实例
+	cache_on: true, //缓存开启
+	cache_time:60, // 缓存秒数
+    redis_key_prefix: "mysql_cache_" //可选 redis key 前缀
+});
+//noCache() 不取缓存
+//链式操作
+teacher.select().where({'phone':123}).limit(1).noCache().exec(rows =>{
+	 console.log(rows)
+ 
+ })
+// no_cache  选项 不取缓存
+
+teacher.getData({
+    no_cache:true;
+    ...
+})
+```
+### mysql redis flush 清除全部缓存
+全局配置redis缓存
+```javascript
+c.flush(function(){
+    console.log("clear cache succeed")
+}) //清除全部缓存
+```
 ### 快捷方式 getById updateById  countAllByWhere
 针对where只有id的情况
 ```javascript
