@@ -1,6 +1,6 @@
 {
   "name": "mysql-simple-wrap",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "description": "mysql nodejs simple wrap",
   "main": "index.js",
   "directories": {
