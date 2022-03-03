@@ -1,6 +1,6 @@
 {
   "name": "mysql-simple-wrap",
-  "version": "1.0.9",
+  "version": "1.0.15",
   "description": "mysql nodejs simple wrap",
   "main": "index.js",
   "directories": {
@@ -13,6 +13,7 @@
     "mysql",
     "nodejs",
     "mysql批量插入",
+    "mysql 注入",
     "mysql批量更新",
     "mysql redis cache 缓存"
   ],
