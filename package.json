@@ -20,7 +20,8 @@
   "author": "bower.liu@gmail.com",
   "license": "ISC",
   "dependencies": {
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "mysql2": "^3.6.0"
   },
   "repository": {
     "type": "git",
